@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "647656534215",
+    "firebase_url": "https://spectacle-ddq.firebaseio.com",
+    "project_id": "spectacle-ddq",
+    "storage_bucket": "spectacle-ddq.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647656534215:android:6fd961d137690f2dd70ee2",
+        "android_client_info": {
+          "package_name": "nl.ddq.android.spectacle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647656534215-43ff8gs5cgqcire1h1l9qk4d9it1jkec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUAKJDkYKHwBTUOQIkNCbzZF-S24FbaT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647656534215-43ff8gs5cgqcire1h1l9qk4d9it1jkec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647656534215:android:609b3097d64888b3d70ee2",
+        "android_client_info": {
+          "package_name": "nl.ddq.spectacle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647656534215-43ff8gs5cgqcire1h1l9qk4d9it1jkec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUAKJDkYKHwBTUOQIkNCbzZF-S24FbaT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647656534215-43ff8gs5cgqcire1h1l9qk4d9it1jkec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
