@@ -3,3 +3,5 @@
 /Application/build/generated/ap_generated_sources/debug/out/
 /Application/build/generated/source/buildConfig/debug/
 /Application/res/values/credentials.xml
+.*
+!.gitignore
