@@ -1,9 +1,16 @@
-/Spectacle30.zip
-/Spectacle31.zip
-/Application/build/generated/ap_generated_sources/debug/out/
-/Application/build/generated/source/buildConfig/debug/
+/*.zip
 /Application/res/values/credentials.xml
 .*
 !.gitignore
 /Application/tests/
 /Application/build/
+# content of .gitignore
+*.iml
+.gradle
+/local.properties
+/.idea/*
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
