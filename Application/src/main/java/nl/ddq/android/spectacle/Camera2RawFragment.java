@@ -149,6 +149,8 @@ public class Camera2RawFragment extends Fragment
     TextView tvVert;
     ToggleButton toggleBtnSky;
     ToggleButton toggleBtnhasiSPEX;
+    ToggleButton toggleBtnCWCCW;
+
 
     SeekBar exposureSlider;
 
@@ -706,6 +708,7 @@ public class Camera2RawFragment extends Fragment
         tvVert= (TextView) view.findViewById(R.id.tvVert);
         toggleBtnSky = (ToggleButton) view.findViewById(R.id.toggleBtnSky);
         toggleBtnhasiSPEX = (ToggleButton) view.findViewById(R.id.toggleBtnhasiSPEX);
+        toggleBtnCWCCW = (ToggleButton) view.findViewById(R.id.toggleBtnCWCCW);
 
 
         exposureSlider=(SeekBar) view.findViewById(R.id.exposureSlider);
@@ -1651,12 +1654,11 @@ public class Camera2RawFragment extends Fragment
        fltHeading = Math.round(sensorEvent.values[0]);
 //        sol_az=position.getAzimuth();
 
+//        float current_measured_bearing = (float) (results[0] * 180 / Math.PI);
+        if (fltHeading < 0) fltHeading += 360;
 
 
         String    strDegree=String.format("%.0f", fltHeading);
-
-        tvHeading.setText("Heading: " + strDegree + "°");
-
 
 
 //    # Viewing positions relative to compass (range 0 - 359, 0 = North)
@@ -1664,23 +1666,44 @@ public class Camera2RawFragment extends Fragment
 //    view_comp_ccw = (solar_az_deg - 135.0) % 360.0
 // Taken from https://github.com/monocle-h2020/so-rad/blob/1afe51a13df8c5dfa6dcce982e72d79b6bc2bf49/bin/functions/azimuth_functions.py#L57
 
-        double view_comp_cw=(sol_az+135) %360;
-        double view_comp_ccw=(sol_az-135) %360;
+// There is a structural (error in the Samsung S8 compass readout of 20 degrees). Not tested on other devices.
+        // normally the ideal angle is 135 degrees. For testing purposes we keep 115, but this needs better testing on
 
+
+
+
+        double view_comp_cw=(sol_az+115) %360;
+        double view_comp_ccw=(sol_az-115) %360;
+        String    strcwDegree=String.format("%.0f", view_comp_cw);
+        String    strccwDegree=String.format("%.0f", view_comp_ccw);
+/*
         Log.i(TAG, "heading should be " + view_comp_cw );
         Log.i(TAG, "heading is now  " + fltHeading );
         Log.i(TAG, "alternative heading (ccw) " + view_comp_ccw );
+*/
+
+
+        tvHeading.setText("Heading: " + strDegree + "°" + " Target cw: " + strcwDegree + " ccw: " + strccwDegree);
 
 
 
+        // this is the optimal angle. The second best one (depending on the view)
+        // Make this button-dependent. CW or CCW?
 
+// checked =ccw
 
+        if(toggleBtnCWCCW.isChecked()) {
 
+        if (fltHeading>view_comp_ccw)         tvHorizontal.setText(R.string.arrowleft);
+        else
+            tvHorizontal.setText(R.string.arrowright);
 
-// this is the optimal angle. The second best one (depending on the view)
+        } else
+
         if (fltHeading>view_comp_cw)         tvHorizontal.setText(R.string.arrowleft);
         else
             tvHorizontal.setText(R.string.arrowright);
+
 
 
         // The vertical part

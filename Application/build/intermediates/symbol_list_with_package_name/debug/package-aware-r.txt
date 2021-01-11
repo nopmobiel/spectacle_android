@@ -999,6 +999,7 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView
+id textViewCWCCW
 id textViewExp
 id textViewiSPEX
 id texture
@@ -1006,6 +1007,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toggleBtnCWCCW
 id toggleBtnSky
 id toggleBtnhasiSPEX
 id top
