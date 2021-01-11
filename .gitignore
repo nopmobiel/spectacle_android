@@ -5,3 +5,5 @@
 /Application/res/values/credentials.xml
 .*
 !.gitignore
+/Application/tests/
+/Application/build/
