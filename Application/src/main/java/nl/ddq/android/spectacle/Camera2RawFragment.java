@@ -1256,7 +1256,8 @@ public class Camera2RawFragment extends Fragment
                 mCharacteristics.get(CameraCharacteristics.SENSOR_INFO_SENSITIVITY_RANGE);
 
         int iso= ISORange.getLower();
-
+        // set iso fixed now, because this does not seem to work.
+        iso=100;
 
 
         Range<Long> range = mCharacteristics.get(CameraCharacteristics.SENSOR_INFO_EXPOSURE_TIME_RANGE);
@@ -1296,9 +1297,9 @@ public class Camera2RawFragment extends Fragment
 
                 // for iSPEX, this has to be set infinite for now
 
+                // trial and error this: the units are diopters, which are 1/meters
 
-
-                builder.set(CaptureRequest.LENS_FOCUS_DISTANCE, 0.0f);
+                builder.set(CaptureRequest.LENS_FOCUS_DISTANCE, 0.2f);
 
                 builder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_MODE_OFF);
 
@@ -1308,6 +1309,9 @@ public class Camera2RawFragment extends Fragment
 
                 builder.set(CaptureRequest.SENSOR_EXPOSURE_TIME,maxFrameDur);
             // ISO
+
+
+
                 builder.set(CaptureRequest.SENSOR_SENSITIVITY,iso);
 
 
